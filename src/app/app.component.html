@@ -1,3 +1,26 @@
 <h1>
   {{title}}
 </h1>
+
+
+<div *ngIf="selectedHero">
+  <h2>Selectd Hero: {{selectedHero.name}}</h2>
+  <div><label>id: {{selectedHero.id}}</label></div>
+  <p>Das ist ein Paragraph</p>
+
+
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
+</div>
+
+
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+      <span class="hero">{{hero.id}} </span><strong>{{hero.name}}</strong>
+      <!-- each hero goes here -->
+    </li>
+  </ul>
+
